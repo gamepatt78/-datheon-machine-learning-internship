@@ -141,7 +141,7 @@ def split_reviews(
         random_state=random_state,
         stratify=reviews.loc[splittable_indices, "sentiment"],
     )
-    train_indices = train_indices.append(singleton_indices)
+    train_indices = train_indices.union(singleton_indices)
 
     return (
         reviews.loc[train_indices, "review_text"],
